@@ -1,4 +1,8 @@
+// Angular
 import { Component, OnInit } from '@angular/core';
+
+// Service
+import { BnkService } from '../../services/bnk.service';
 
 @Component({
   selector: 'app-instagram-list',
@@ -7,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstagramListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _bnkService: BnkService) { }
 
   ngOnInit() {
   }

@@ -16,6 +16,7 @@ export class InstagramComponent implements OnInit {
   ngOnInit() {
     console.log(this.route.snapshot.paramMap.get('instagramId'));
     this.memberName = this.route.snapshot.paramMap.get('instagramId');
+
   }
 
 }
