@@ -1,8 +1,10 @@
-<div class="col-sm-4">
-  <div class="card">
-    <img class="card-img-top" [src]="member.imgUrl">
-    <div class="card-body">
+<div class="card">
+  <div class="card-img-float">
+    <img class="card-img-top" [src]="member.imgUrl" [alt]="member.name" [title]="member.name">
+  </div>
+  <div class="card-body">
+    <h1 class="card-title">
       {{ member.name }}
-    </div>
+    </h1>
   </div>
 </div>
