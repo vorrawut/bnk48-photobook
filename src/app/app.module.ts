@@ -11,6 +11,7 @@ import { BnkGirlListComponent } from './component/bnk-girl-list/bnk-girl-list.co
 import { BnkGirlComponent } from './component/bnk-girl/bnk-girl.component';
 import { InstagramComponent } from './component/instagram/instagram.component';
 import { InstagramListComponent } from './component/instagram-list/instagram-list.component';
+import { InstagramItemComponent } from './component/instagram-item/instagram-item.component';
 
 // Route
 const routes: Route[] = [
@@ -26,7 +27,8 @@ const routes: Route[] = [
     BnkGirlListComponent,
     BnkGirlComponent,
     InstagramComponent,
-    InstagramListComponent
+    InstagramListComponent,
+    InstagramItemComponent
   ],
   imports: [
     BrowserModule,

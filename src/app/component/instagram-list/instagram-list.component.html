@@ -1,3 +1,5 @@
-<p>
-  instagram-list works!
-</p>
+<div *ngIf="feed!==undefined" class="row card-deck">
+  <div class="col-sm-4 mb-3" *ngFor="let item of feed.feeds">
+    <app-instagram-item [instagramItem]="item"></app-instagram-item>
+  </div>
+</div>
