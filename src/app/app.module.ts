@@ -10,6 +10,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { BnkGirlListComponent } from './component/bnk-girl-list/bnk-girl-list.component';
 import { BnkGirlComponent } from './component/bnk-girl/bnk-girl.component';
 import { InstagramComponent } from './component/instagram/instagram.component';
+import { InstagramListComponent } from './component/instagram-list/instagram-list.component';
 
 // Route
 const routes: Route[] = [
@@ -24,7 +25,8 @@ const routes: Route[] = [
     DashboardComponent,
     BnkGirlListComponent,
     BnkGirlComponent,
-    InstagramComponent
+    InstagramComponent,
+    InstagramListComponent
   ],
   imports: [
     BrowserModule,
