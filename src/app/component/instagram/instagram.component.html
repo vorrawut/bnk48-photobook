@@ -1,5 +1,5 @@
 <div class="container">
   <h1>{{ memberName }}</h1>
-  <button class="back-btn">Back</button>
+  <button (click)="goBack()" class="back-btn">Back</button>
   <app-instagram-list [member]='memberName'></app-instagram-list>
 </div>

@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { BnkService } from '../../services/bnk.service';
 
 // Models
-import { Feed } from '../../models/feed';
+import { Feed, FeedItem } from '../../models/feed';
 
 @Component({
   selector: 'app-instagram-list',
@@ -14,14 +14,15 @@ import { Feed } from '../../models/feed';
 })
 export class InstagramListComponent implements OnInit {
 
-  feed: Feed;
+  feed: FeedItem[];
 
   @Input() member: string;
 
   constructor(private _bnkService: BnkService) { }
 
   ngOnInit() {
-    this._bnkService.instagram(this.member).subscribe(data => this.feed = data);
+    this._bnkService.instagram(this.member)
+      .subscribe(data => this.feed = data.feeds.filter(i => i.thumbnail.endsWith('.jpg')));
   }
 
 }
