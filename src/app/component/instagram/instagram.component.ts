@@ -9,10 +9,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InstagramComponent implements OnInit {
 
+  memberName: string;
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     console.log(this.route.snapshot.paramMap.get('instagramId'));
+    this.memberName = this.route.snapshot.paramMap.get('instagramId');
   }
 
 }
