@@ -12,14 +12,17 @@ import { BnkGirlComponent } from './component/bnk-girl/bnk-girl.component';
 import { InstagramComponent } from './component/instagram/instagram.component';
 import { InstagramListComponent } from './component/instagram-list/instagram-list.component';
 import { InstagramItemComponent } from './component/instagram-item/instagram-item.component';
-import { BnkSuffixPipe } from './pipes/bnk-suffix.pipe';
 import { LoginComponent } from './component/login/login.component';
+
+// Pipes
+import { BnkSuffixPipe } from './pipes/bnk-suffix.pipe';
 
 // Route
 const routes: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
+  { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'instagram/:instagramId', component: InstagramComponent }
+  { path: 'instagram/:instagramId', component: InstagramComponent },
 ];
 
 @NgModule({
