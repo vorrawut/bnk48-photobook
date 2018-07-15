@@ -24,6 +24,11 @@ export class LoginComponent implements OnInit {
         password: ''
       }
     );
+
+    this.loginForm.setValue({
+      login: 'john',
+      password: 'password'
+    });
   }
 
   login() {

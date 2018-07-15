@@ -1,5 +1,6 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Services
 import { BnkService } from '../../services/bnk.service';
@@ -14,7 +15,7 @@ export class AdminComponent implements OnInit {
 
   memberlist: Member[];
 
-  constructor(private _bnkService: BnkService) { }
+  constructor(private _bnkService: BnkService, private router: Router) { }
 
   ngOnInit() {
     this._bnkService.list().subscribe(data => this.memberlist = data);
@@ -22,6 +23,7 @@ export class AdminComponent implements OnInit {
 
   edit(member: Member) {
     console.log(member);
+    this.router.navigate(['/admin/edit', member._id]);
   }
 
 }

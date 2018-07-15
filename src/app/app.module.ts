@@ -18,6 +18,7 @@ import { LoginComponent } from './component/login/login.component';
 // Pipes
 import { BnkSuffixPipe } from './pipes/bnk-suffix.pipe';
 import { AdminComponent } from './component/admin/admin.component';
+import { AdminMemberEditComponent } from './component/admin-member-edit/admin-member-edit.component';
 
 // Route
 const routes: Route[] = [
@@ -26,6 +27,7 @@ const routes: Route[] = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'instagram/:instagramId', component: InstagramComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'admin/edit/:memberId', component: AdminMemberEditComponent },
 ];
 
 @NgModule({
@@ -40,6 +42,7 @@ const routes: Route[] = [
     BnkSuffixPipe,
     LoginComponent,
     AdminComponent,
+    AdminMemberEditComponent,
   ],
   imports: [
     BrowserModule,

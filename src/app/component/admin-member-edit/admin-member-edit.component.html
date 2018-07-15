@@ -1,0 +1,22 @@
+<div class="header-section">
+  <h1>BNK48</h1>
+</div>
+<div class="container">
+  <form class="form" [formGroup]="member">
+    <div class="form-group">
+      <label for="text"></label>
+      <input type="text" formControlName="name">
+    </div>
+    <div class="form-group">
+      <label for="text"></label>
+      <input type="text" formControlName="imageUrl">
+    </div>
+    <div class="form-group">
+      <label for="text"></label>
+      <input type="text" formControlName="instagramId">
+    </div>
+  </form>
+  <button (click)="save()" class="back-btn">Save</button>
+  <button (click)="reset()" class="back-btn">Reset</button>
+  <button (click)="goBack()" class="back-btn">Back</button>
+</div>
