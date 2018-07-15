@@ -20,4 +20,8 @@ export class AdminService {
   getMemberDetailById(memberId: string): Observable<Member> {
     return this._http.get<Member>(`${environment.api_url}/bnk/members/${memberId}`);
   }
+
+  updateMemberDetailById(member: Member): Observable<any> {
+    return this._http.patch(`${environment.api_url}/bnk/members/${member._id}`, member);
+  }
 }

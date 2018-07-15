@@ -8,7 +8,7 @@ import { AdminService } from '../../services/admin.service';
 
 // Models
 import { Member } from '../../models/member';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-admin-member-edit',
@@ -20,7 +20,10 @@ export class AdminMemberEditComponent implements OnInit {
   editForm: FormGroup;
   member: Member;
 
-  constructor(private _fb: FormBuilder, private _location: Location, private _admin: AdminService, private route: ActivatedRoute) { }
+  constructor(private _fb: FormBuilder,
+    private _location: Location,
+    private _admin: AdminService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.editForm = this._fb.group({
@@ -44,7 +47,9 @@ export class AdminMemberEditComponent implements OnInit {
   }
 
   save() {
-
+    this._admin.updateMemberDetailById(this.editForm.value).subscribe(data => {
+      this._location.back();
+    }, error => console.log(error));
   }
 
   reset() {
