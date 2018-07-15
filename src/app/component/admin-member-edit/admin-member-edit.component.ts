@@ -1,7 +1,7 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // Services
 import { AdminService } from '../../services/admin.service';
@@ -26,30 +26,28 @@ export class AdminMemberEditComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.editForm = this._fb.group({
-      _id: '',
-      name: '',
-      imgUrl: '',
-      instagramId: ''
-    });
-
-    this.getMemberDetail();
-  }
-
-  getMemberDetail() {
     const memberId = this.route.snapshot.paramMap.get('memberId');
     this._admin.getMemberDetailById(memberId)
       .subscribe(data => {
         this.member = data;
-        this.editForm.setValue(data);
+        this.editForm = this._fb.group({
+          _id: [data._id, Validators.required],
+          name: [data.name, Validators.required],
+          imgUrl: [data.imgUrl, Validators.required],
+          instagramId: [data.instagramId, Validators.required]
+        });
       },
         error => alert(error.message));
   }
 
   save() {
-    this._admin.updateMemberDetailById(this.editForm.value).subscribe(data => {
-      this._location.back();
-    }, error => console.log(error));
+    if (this.editForm.valid) {
+      this._admin.updateMemberDetailById(this.editForm.value).subscribe(data => {
+        this._location.back();
+      }, error => alert(error.message));
+    } else {
+      alert('Invalid field');
+    }
   }
 
   reset() {
