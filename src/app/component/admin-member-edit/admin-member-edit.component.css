@@ -1,7 +1,13 @@
 .btn {
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .card {
     margin: 0 auto;
+    box-sizing: content-box;
 }
+
+/* .img {
+    max-width: 200px;
+    max-height: 300px;
+} */

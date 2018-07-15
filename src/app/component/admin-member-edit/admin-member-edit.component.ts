@@ -18,6 +18,7 @@ import { ActivatedRoute } from '../../../../node_modules/@angular/router';
 export class AdminMemberEditComponent implements OnInit {
 
   member: FormGroup;
+  memberDetail: Member;
 
   constructor(private _fb: FormBuilder, private _location: Location, private _admin: AdminService, private route: ActivatedRoute) { }
 
@@ -35,6 +36,7 @@ export class AdminMemberEditComponent implements OnInit {
     const memberId = this.route.snapshot.paramMap.get('memberId');
     this._admin.getMemberDetailById(memberId)
       .subscribe(data => {
+        this.memberDetail = data;
         this.member.setValue({
           name: data.name,
           imageUrl: data.imgUrl,
@@ -49,7 +51,11 @@ export class AdminMemberEditComponent implements OnInit {
   }
 
   reset() {
-
+    this.member.setValue({
+      name: this.memberDetail.name,
+      imageUrl: this.memberDetail.imgUrl,
+      instagramId: this.memberDetail.instagramId,
+    });
   }
 
   goBack() {
