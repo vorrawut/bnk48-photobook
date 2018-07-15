@@ -21,9 +21,4 @@ export class AdminComponent implements OnInit {
     this._bnkService.list().subscribe(data => this.memberlist = data);
   }
 
-  edit(member: Member) {
-    console.log(member);
-    this.router.navigate(['/admin/edit', member._id]);
-  }
-
 }

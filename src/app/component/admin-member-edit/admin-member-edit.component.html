@@ -4,14 +4,14 @@
 <div class="container">
   <div class="card col-8">
     <div class="card-body">
-      <form class="form" [formGroup]="member">
+      <form class="form" [formGroup]="editForm" *ngIf="editForm!==undefined">
         <div class="form-group">
           <label for="text">Name</label>
           <input type="text" class="form-control" formControlName="name">
         </div>
         <div class="form-group">
           <label for="text">Default Image</label>
-          <input type="text" class="form-control" formControlName="imageUrl">
+          <input type="text" class="form-control" formControlName="imgUrl">
           <!-- <img class="card-img-top" [src]="memberDetail.imgUrl" [alt]="memberDetail._id" [title]="memberDetail.name"> -->
         </div>
         <div class="form-group">
@@ -20,7 +20,7 @@
         </div>
       </form>
       <button class="btn btn-primary" (click)="save()">Save</button>
-      <button class="btn btn-primary" (click)="reset()">Reset</button>
+      <button class="btn btn-primary"(click)="reset()">Reset</button>
       <button class="btn btn-primary" (click)="goBack()">Back</button>
     </div>
   </div>

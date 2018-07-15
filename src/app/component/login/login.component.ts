@@ -25,10 +25,8 @@ export class LoginComponent implements OnInit {
       }
     );
 
-    this.loginForm.setValue({
-      login: 'john',
-      password: 'password'
-    });
+    this.loginForm.markAsPristine();
+    this.loginForm.markAsUntouched();
   }
 
   login() {
