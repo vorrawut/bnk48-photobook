@@ -1,4 +1,9 @@
+// Angular
 import { Component, OnInit } from '@angular/core';
+
+// Services
+import { BnkService } from '../../services/bnk.service';
+import { Member } from '../../models/member';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  memberlist: Member[];
+
+  constructor(private _bnkService: BnkService) { }
 
   ngOnInit() {
+    this._bnkService.list().subscribe(data => this.memberlist = data);
+  }
+
+  edit(member: Member) {
+    console.log(member);
   }
 
 }

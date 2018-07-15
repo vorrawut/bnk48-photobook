@@ -1,0 +1,9 @@
+h1 {
+    text-align: center;
+}
+
+.header-section {
+    height: 60px;
+    background-color: #c58ec3;
+    margin-bottom: 30px;
+}
