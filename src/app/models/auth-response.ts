@@ -1,3 +1,3 @@
-export class AuthResponse {
+export class AuthenResponse {
     token: string;
 }
