@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Component
 import { AppComponent } from './app.component';
@@ -35,12 +36,13 @@ const routes: Route[] = [
     InstagramListComponent,
     InstagramItemComponent,
     BnkSuffixPipe,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
