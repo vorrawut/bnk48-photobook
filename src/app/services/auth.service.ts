@@ -16,6 +16,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
+
   private token: string;
 
   constructor(private _http: HttpClient) { }
@@ -30,5 +31,9 @@ export class AuthService {
 
   getToken(): string {
     return this.token;
+  }
+
+  isLogin(): Boolean {
+   return !!this.token;
   }
 }

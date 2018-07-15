@@ -20,15 +20,16 @@ import { BnkSuffixPipe } from './pipes/bnk-suffix.pipe';
 import { AdminComponent } from './component/admin/admin.component';
 import { AdminMemberEditComponent } from './component/admin-member-edit/admin-member-edit.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { AuthGuard } from './guard/auth.guard';
 
-// Route
+// Route Tables
 const routes: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'instagram/:instagramId', component: InstagramComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'admin/edit/:memberId', component: AdminMemberEditComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'admin/edit/:memberId', component: AdminMemberEditComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
