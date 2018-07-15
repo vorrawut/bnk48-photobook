@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // Models
-import { AuthResponse } from '../models/auth-response';
+import { AuthenResponse } from '../models/auth-response';
 import { Credential } from '../models/credential';
 
 // Env
@@ -19,7 +19,7 @@ export class AuthService {
 
   constructor(private _http: HttpClient) { }
 
-  authen(credential: Credential): Observable<AuthResponse> {
-    return this._http.post<AuthResponse>(`${environment.api_url}/auth/login`, credential);
+  authen(credential: Credential): Observable<AuthenResponse> {
+    return this._http.post<AuthenResponse>(`${environment.api_url}/auth/login`, credential);
   }
 }
