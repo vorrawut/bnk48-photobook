@@ -1,6 +1,6 @@
 // Angular
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +19,7 @@ import { LoginComponent } from './component/login/login.component';
 import { BnkSuffixPipe } from './pipes/bnk-suffix.pipe';
 import { AdminComponent } from './component/admin/admin.component';
 import { AdminMemberEditComponent } from './component/admin-member-edit/admin-member-edit.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 // Route
 const routes: Route[] = [
@@ -50,7 +51,11 @@ const routes: Route[] = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
