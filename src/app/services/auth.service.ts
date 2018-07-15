@@ -33,7 +33,7 @@ export class AuthService {
     return this.token;
   }
 
-  isLogin(): Boolean {
+  isLogin(): boolean {
    return !!this.token;
   }
 }
