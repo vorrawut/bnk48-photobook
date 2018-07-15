@@ -2,13 +2,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+// Librarys
+import { Observable } from 'rxjs';
+
 // Models
 import { Member } from '../models/member';
+import { Feed } from '../models/feed';
 
 // env
 import { environment } from '../../environments/environment';
-import { Observable } from '../../../node_modules/rxjs';
-import { Feed } from '../models/feed';
 
 @Injectable({
   providedIn: 'root'
