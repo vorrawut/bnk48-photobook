@@ -24,4 +24,5 @@ export class BnkService {
   instagram(id: string): Observable<Feed> {
     return this.http.get<Feed>(`${environment.instagram_api_url}${id}`);
   }
+
 }
