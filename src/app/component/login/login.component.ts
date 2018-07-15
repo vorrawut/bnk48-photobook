@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   login() {
     this._auth.authen(this.loginForm.value)
       .subscribe(data => {
-        console.log(data);
+        this._auth.setToken(data.token);
         this.router.navigate(['/admin']);
       },
         error => alert(error.message));
