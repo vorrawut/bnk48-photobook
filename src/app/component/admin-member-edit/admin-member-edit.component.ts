@@ -8,7 +8,10 @@ import { AdminService } from '../../services/admin.service';
 
 // Models
 import { Member } from '../../models/member';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
+// Validators
+import { UrlValidator } from '../../validators/url.validator';
 
 @Component({
   selector: 'app-admin-member-edit',
@@ -33,7 +36,7 @@ export class AdminMemberEditComponent implements OnInit {
         this.editForm = this._fb.group({
           _id: [data._id, Validators.required],
           name: [data.name, Validators.required],
-          imgUrl: [data.imgUrl, Validators.required],
+          imgUrl: [data.imgUrl, [Validators.required, UrlValidator.validate]],
           instagramId: [data.instagramId, Validators.required]
         });
       },
@@ -46,7 +49,7 @@ export class AdminMemberEditComponent implements OnInit {
         this._location.back();
       }, error => alert(error.message));
     } else {
-      alert('Invalid field');
+      console.log(this.editForm.get('imgUrl').getError('url'));
     }
   }
 
