@@ -12,7 +12,8 @@
         <div class="form-group">
           <label for="text">Default Image</label>
           <input type="text" class="form-control" formControlName="imgUrl">
-          <!-- <img class="card-img-top" [src]="memberDetail.imgUrl" [alt]="memberDetail._id" [title]="memberDetail.name"> -->
+          <span *ngIf="editForm.get('imgUrl').getError('required')" class="require">require</span>
+          <span *ngIf="editForm.get('imgUrl').getError('url')" class="url">url require</span>
         </div>
         <div class="form-group">
           <label for="text">Instagram</label>
