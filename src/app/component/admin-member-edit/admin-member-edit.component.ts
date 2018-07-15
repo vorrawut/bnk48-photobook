@@ -8,7 +8,7 @@ import { AdminService } from '../../services/admin.service';
 
 // Models
 import { Member } from '../../models/member';
-import { ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin-member-edit',
